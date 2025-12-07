@@ -1,0 +1,33 @@
+
+
+/* 1. The Container (Parent) */
+main {
+  /* This must be a fixed height to allow internal scrolling */
+  height: 100vh; 
+  
+  /* Enables vertical scrolling */
+  overflow-y: scroll; 
+  
+  /* The Magic: axis (y) and strictness (mandatory) */
+  scroll-snap-type: y mandatory; 
+  
+  /* adds smoothness to anchor link clicks */
+  scroll-behavior: smooth; 
+}
+
+/* 2. The Sections (Children) */
+main section {
+  height: 100vh;
+  
+  /* Defines where the snap point is on the child */
+  scroll-snap-align: start; 
+}
+
+/* 3. Your specific first-section rule */
+main section:nth-of-type(1) {
+  /* NOTE: Added spaces around the minus sign. CSS calc requires this! */
+  height: calc(100vh - 89px); 
+  
+  /* If you have a fixed header, this ensures content isn't hidden */
+  scroll-margin-top: 89px; 
+}
